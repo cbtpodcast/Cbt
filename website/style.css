@@ -227,3 +227,7 @@ footer .social-icons img {
         height: 150px; /* Ajuste a altura do vídeo conforme necessário */
     }
 }
+
+.card h3 {
+    color: #FFFF; /* Alterar para a cor desejada */
+}
