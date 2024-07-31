@@ -70,108 +70,95 @@ nav a:hover {
 
 .foto-lateral {
     width: 200px; /* Ajuste o tamanho conforme necessário */
+    height: auto;
     margin-left: 1em;
     border-radius: 8px;
 }
 
-/* Estilos do carrossel de imagens */
-.carousel {
-    display: flex;
-    overflow: auto;
-    white-space: nowrap;
-    margin: 1em 0;
-}
-
-.carousel img {
-    height: 150px;
-    margin: 0 0.5em;
-    transition: transform 0.5s;
-    border-radius: 8px;
-}
-
-.carousel img:hover {
-    transform: scale(1.1);
-}
-
-/* Estilos dos cards */
+/* Estilos das cards */
 .cards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
     gap: 1em;
+    justify-content: center;
 }
 
 .card {
-    background-color: #2C2C2C;
-    color: #FFF;
-    padding: 1em;
+    background-color: #2A2A2A;
     border-radius: 8px;
-    width: calc(30% - 1em);
-    margin-bottom: 1em;
-    transition: transform 0.5s, background-color 0.5s;
-    border: 1px solid #444;
+    padding: 1em;
+    flex: 1 1 calc(33.333% - 2em);
+    max-width: calc(33.333% - 2em);
+    box-sizing: border-box;
 }
 
 .card img {
     width: 100%;
+    height: auto;
     border-radius: 8px;
-    margin-bottom: 1em;
 }
 
-.card:hover {
-    transform: scale(1.05);
-    background-color: #3C3C3C;
+.card h3 {
+    margin: 0.5em 0;
 }
 
-/* Estilos dos membros da equipe */
-.team {
+.card p {
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+/* Estilos do carrossel */
+.carousel {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
     gap: 1em;
+    padding: 1em 0;
 }
 
-.team-member {
-    background-color: #2C2C2C;
-    color: #FFF;
-    padding: 1em;
+.carousel .card {
+    scroll-snap-align: center;
+    flex: 0 0 auto;
+    min-width: calc(33.333% - 1em);
+    max-width: calc(33.333% - 1em);
+    box-sizing: border-box;
+}
+
+.carousel .card img {
+    width: 100%;
+    height: auto;
     border-radius: 8px;
-    width: calc(45% - 1em);
-    margin-bottom: 1em;
-    transition: transform 0.5s, background-color 0.5s;
-    text-align: center;
-    border: 1px solid #444;
 }
 
-.team-member img {
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    margin-bottom: 1em;
+.carousel .card:last-child {
+    margin-right: 0;
 }
 
-.team-member:hover {
-    transform: scale(1.05);
-    background-color: #3C3C3C;
+.btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background-color: #1E90FF;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 0.5em;
+    transition: background-color 0.3s;
 }
 
-/* Estilos do rodapé */
+.btn:hover {
+    background-color: #0073e6;
+}
+
+/* Estilos do footer */
 footer {
     text-align: center;
-    padding: 1em 0;
+    padding: 2em 0;
     background-color: #2C2C2C;
-    color: white;
     border-top: 1px solid #444;
 }
 
-footer .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 1em;
-    margin-top: 0.5em;
-}
-
 footer .social-icons a {
+    margin: 0 0.5em;
     display: inline-block;
     width: 24px;
     height: 24px;
@@ -182,32 +169,18 @@ footer .social-icons img {
     height: auto;
 }
 
-/* Estilos do botão assistir */
-.btn {
-    display: inline-block;
-    padding: 0.5em 1em;
-    background-color: #1E90FF;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    margin-top: 1em;
-    transition: background-color 0.3s;
-}
-
-.btn:hover {
-    background-color: #007acc;
-}
-
 /* Media queries para responsividade */
 @media (max-width: 1024px) {
-    .card, .team-member {
-        width: calc(50% - 1em);
+    .carousel .card {
+        min-width: calc(50% - 1em);
+        max-width: calc(50% - 1em);
     }
 }
 
 @media (max-width: 768px) {
-    .card, .team-member {
-        width: calc(100% - 1em);
+    .carousel .card {
+        min-width: calc(100% - 1em);
+        max-width: calc(100% - 1em);
     }
 
     .sobre-content {
@@ -220,14 +193,4 @@ footer .social-icons img {
         margin-left: 0;
         margin-top: 1em;
     }
-}
-
-@media (max-width: 600px) {
-    .video-wrapper {
-        height: 150px; /* Ajuste a altura do vídeo conforme necessário */
-    }
-}
-
-.card h3 {
-    color: #FFFF; /* Alterar para a cor desejada */
 }

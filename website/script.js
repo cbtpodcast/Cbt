@@ -1,8 +1,36 @@
-document.addEventListener('scroll', function() {
-    const parallaxElements = document.querySelectorAll('.parallax');
-    let scrollTop = document.documentElement.scrollTop;
-    parallaxElements.forEach(element => {
-        let speed = element.getAttribute('data-speed');
-        element.style.backgroundPositionY = -(scrollTop * speed) + 'px';
+// script.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    const carousels = document.querySelectorAll('.carousel');
+
+    carousels.forEach(carousel => {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        carousel.addEventListener('mousedown', (e) => {
+            isDown = true;
+            carousel.classList.add('active');
+            startX = e.pageX - carousel.offsetLeft;
+            scrollLeft = carousel.scrollLeft;
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            isDown = false;
+            carousel.classList.remove('active');
+        });
+
+        carousel.addEventListener('mouseup', () => {
+            isDown = false;
+            carousel.classList.remove('active');
+        });
+
+        carousel.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - carousel.offsetLeft;
+            const walk = (x - startX) * 3; // Scroll-fast
+            carousel.scrollLeft = scrollLeft - walk;
+        });
     });
 });
