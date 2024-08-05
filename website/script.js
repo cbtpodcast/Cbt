@@ -33,4 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
             carousel.scrollLeft = scrollLeft - walk;
         });
     });
+
+    // Toggle menu
+    const toggle = document.querySelector('.navbar-toggle');
+    const navbar = document.querySelector('.navbar');
+
+    toggle.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+    });
 });

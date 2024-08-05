@@ -101,6 +101,7 @@ footer .social-icons {
     display: flex;
     justify-content: center;
     gap: 1em;
+    flex-wrap: wrap;
 }
 
 footer .social-icons a {
@@ -131,7 +132,7 @@ footer .social-icons img {
 .author-info {
     flex: 1;
     background-color: #2C2C2C;
-    padding: 21em;
+    padding: 1em;
     border-radius: 8px;
     border: 1px solid #444;
 }
@@ -203,8 +204,52 @@ footer .social-icons img {
     .author-info {
         flex: 1 1 100%;
     }
+
+    /* Menu de navegação responsivo */
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin: 0.5em 0;
+    }
 }
 
-.card h3, .latest-release h3 {
-    color: #FFFF; /* Alterar para a cor desejada */
+/* Menu de navegação de hambúrguer */
+.navbar {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    nav {
+        display: none;
+    }
+
+    .navbar {
+        display: block;
+        background-color: #2C2C2C;
+        padding: 1em;
+    }
+
+    .navbar a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        padding: 1em;
+        border-bottom: 1px solid #444;
+    }
+
+    .navbar a:hover {
+        color: #1E90FF;
+    }
+
+    .navbar-toggle {
+        display: block;
+        cursor: pointer;
+        padding: 1em;
+        background-color: #2C2C2C;
+        color: white;
+        text-align: center;
+    }
 }
