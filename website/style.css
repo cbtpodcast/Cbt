@@ -7,7 +7,7 @@ body {
     color: #fff;
 }
 
-/* Estilos do header com vídeo */
+/* Estilos do header com imagem */
 header {
     position: relative;
     width: 100%;
@@ -24,10 +24,10 @@ header {
     height: 100%;
 }
 
-header video {
+header img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Faz a imagem cobrir toda a área do container, cortando o excesso se necessário */
 }
 
 /* Estilos do menu de navegação */
